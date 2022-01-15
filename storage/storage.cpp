@@ -26,6 +26,7 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
+#include "build_version.hpp"
 #include "defines.hpp"
 
 #include "3party/jansson/myjansson.hpp"
@@ -1018,8 +1019,7 @@ int64_t Storage::ParseIndexAndGetDataVersion(std::string const & index) const
     if (root == nullptr || !json_is_array(root))
       return 0;
 
-    /// @todo Get correct value somehow ..
-    int64_t const appVersion = 21042001;
+    uint64_t const appVersion = build_version::kCode;
     int64_t dataVersion = 0;
 
     size_t const count = json_array_size(root);
@@ -1032,8 +1032,8 @@ int64_t Storage::ParseIndexAndGetDataVersion(std::string const & index) const
         auto const key = json_object_iter_key(it);
         auto const val = json_object_iter_value(it);
 
-        int appVer;
-        if (key && val && json_is_number(val) && strings::to_int(key, appVer))
+        uint64_t appVer;
+        if (key && val && json_is_number(val) && strings::to_uint64(key, appVer))
         {
           int64_t const dataVer = json_integer_value(val);
           if (appVersion >= appVer && dataVersion < dataVer)
@@ -1042,6 +1042,8 @@ int64_t Storage::ParseIndexAndGetDataVersion(std::string const & index) const
       }
     }
 
+    if (dataVersion == 0)
+      LOG(LDEBUG, ("Usable data version not found for App version", appVersion));
     return dataVersion;
   }
   catch (RootException const &)

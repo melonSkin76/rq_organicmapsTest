@@ -48,6 +48,7 @@
 #include <mutex>
 #include <vector>
 
+#include "build_version.hpp"
 #include "defines.hpp"
 
 using namespace platform::tests_support;
@@ -495,17 +496,25 @@ protected:
 };
 }  // namespace
 
+UNIT_TEST(StorageTest_AppVersion)
+{
+  uint64_t const appCode = build_version::kCode;
+  // yymmddcc, cc - commit id
+  TEST(22010101 < appCode && appCode < 30010101, (appCode));
+}
+
 UNIT_TEST(StorageTest_ParseIndexFile)
 {
   Storage storage;
 
-  TEST_EQUAL(storage.ParseIndexAndGetDataVersion(R"([ { "21010101" : 210317 } ])"), 210317, ());
-  TEST_EQUAL(storage.ParseIndexAndGetDataVersion(R"([ { "21010101" : 210317 }, { "21041001" : 210409 } ])"), 210409, ());
+  TEST_EQUAL(storage.ParseIndexAndGetDataVersion(R"([ { "21010156" : 210317 } ])"), 210317, ());
+  TEST_EQUAL(storage.ParseIndexAndGetDataVersion(
+    R"([ { "21010199" : 210317 }, { "21102322" : 211022 }, { "30010266" : 230101 } ])"), 211022, ());
 
   // Invalid jsons
   TEST_EQUAL(storage.ParseIndexAndGetDataVersion(R"([ { "21010101" : 210317 })"), 0, ());
   TEST_EQUAL(storage.ParseIndexAndGetDataVersion(R"([ { "xxx" : 210317 } ])"), 0, ());
-  TEST_EQUAL(storage.ParseIndexAndGetDataVersion(R"([ { "21010101" : xxx } ])"), 0, ());
+  TEST_EQUAL(storage.ParseIndexAndGetDataVersion(R"([ { "21010155" : xxx } ])"), 0, ());
 }
 
 UNIT_TEST(StorageTest_Smoke)
