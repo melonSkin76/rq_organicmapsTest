@@ -8,7 +8,7 @@
   android:orientation="vertical">
 
   <com.google.android.material.tabs.TabLayout
-    android:id="@+id/tabs"
+    android:id="@+id/tabs_spinner"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_block_base"
     android:elevation="@dimen/appbar_elevation"
@@ -19,9 +19,9 @@
     tools:ignore="UnusedAttribute"/>
 
   <TimePicker
-    android:id="@+id/picker"
+    android:id="@+id/picker_spinner"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:windowBackground"
-    android:timePickerMode="clock"/>
+    android:timePickerMode="spinner"/>
 </LinearLayout>

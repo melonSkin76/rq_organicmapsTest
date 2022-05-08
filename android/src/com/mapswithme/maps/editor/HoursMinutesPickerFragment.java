@@ -27,6 +27,7 @@ import com.mapswithme.util.DateUtils;
 import com.mapswithme.util.ThemeUtils;
 
 public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
+    implements SelectTimepickerModeFragment.SelectTimepickerModeListener
 {
   private static final String EXTRA_FROM = "HoursMinutesFrom";
   private static final String EXTRA_TO = "HoursMinutesTo";
@@ -47,6 +48,8 @@ public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
 
   private int mId;
   private Button mOkButton;
+
+  private int mSelectedMode;
 
   public interface OnPickListener
   {
@@ -124,10 +127,26 @@ public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
   private View createView()
   {
     final LayoutInflater inflater = LayoutInflater.from(getActivity());
-    @SuppressLint("InflateParams")
-    final View root = inflater.inflate(R.layout.fragment_timetable_picker, null);
 
-    mPicker = root.findViewById(R.id.picker);
+    @SuppressLint("InflateParams")
+    final View root;
+    if (mSelectedMode == 0)
+    {
+      root = inflater.inflate(R.layout.fragment_timetable_picker, null);
+    }
+    else
+    {
+      root = inflater.inflate(R.layout.fragment_timetable_picker_spinner, null);
+    }
+
+    if (mSelectedMode == 0) {
+      mPicker = root.findViewById(R.id.picker);
+    }
+    else
+    {
+      mPicker = root.findViewById(R.id.picker_spinner);
+    }
+
     mPicker.setIs24HourView(DateFormat.is24HourFormat(getActivity()));
 
     int id = getResources().getIdentifier("hours", "id", "android");
@@ -138,7 +157,14 @@ public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
         mPickerHoursLabel = null;
     }
 
-    mTabs = root.findViewById(R.id.tabs);
+    if (mSelectedMode == 0) {
+      mTabs = root.findViewById(R.id.tabs);
+    }
+    else
+    {
+      mTabs = root.findViewById(R.id.tabs_spinner);
+    }
+
     TextView tabView = (TextView) inflater.inflate(R.layout.tab_timepicker, mTabs, false);
     // TODO @yunik add translations
     tabView.setText("From");
@@ -212,5 +238,10 @@ public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
     mPicker.setCurrentMinute((int) hoursMinutes.minutes);
     mPicker.setCurrentHour((int) hoursMinutes.hours);
     mOkButton.setText(okBtnRes);
+  }
+
+  public void setTimepickerMode(int mode)
+  {
+    mSelectedMode = mode;
   }
 }

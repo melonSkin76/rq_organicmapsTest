@@ -121,6 +121,11 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
     notifyItemChanged(getItemCount() - 1);
   }
 
+  private void selectTimepicker()
+  {
+    SelectTimepickerModeFragment.select(mFragment.getActivity(), mFragment.getChildFragmentManager());
+  }
+
   private void pickTime(int position, @IntRange(from = HoursMinutesPickerFragment.TAB_FROM, to = HoursMinutesPickerFragment.TAB_TO) int tab,
                         @IntRange(from = ID_OPENING, to = ID_CLOSING) int id)
   {
@@ -265,6 +270,7 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
       switch (v.getId())
       {
       case R.id.time_open:
+        selectTimepicker();
         pickTime(getAdapterPosition(), HoursMinutesPickerFragment.TAB_FROM, ID_OPENING);
         break;
       case R.id.time_close:

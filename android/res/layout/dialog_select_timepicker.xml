@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_double_and_half"
+    android:background="?cardBackground"
+    android:minWidth="@dimen/dialog_min_width"
+    android:minHeight="@dimen/dialog_min_height"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_base_plus">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_quarter"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:fontFamily="@string/robotoMedium"
+        android:text="@string/timepicker_select"/>
+
+    <RadioGroup
+        android:id="@+id/timepicker_modes"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_base">
+
+        <RadioButton
+            android:id="@+id/timepicker_clock"
+            style="?fontSubtitle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:minHeight="48dp"
+            android:padding="@dimen/margin_half_plus"
+            android:text="@string/timepicker_select_clock" />
+
+        <RadioButton
+            android:id="@+id/timepicker_spinner"
+            style="?fontSubtitle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:minHeight="48dp"
+            android:padding="@dimen/margin_half_plus"
+            android:text="@string/timepicker_select_spinner" />
+    </RadioGroup>
+</LinearLayout>
