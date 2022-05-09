@@ -247,6 +247,24 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/timepicker_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.01"
+            android:background="?clickableBackground"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_half_plus">
+
+          <TextView
+              android:id="@+id/timepicker_mode_prompt"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:text="@string/timepicker_mode"
+              android:textAppearance="@style/MwmTextAppearance.Body3" />
+
+        </LinearLayout>
+
       </LinearLayout>
 
       <View

@@ -27,12 +27,12 @@ import com.mapswithme.util.DateUtils;
 import com.mapswithme.util.ThemeUtils;
 
 public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
-    implements SelectTimepickerModeFragment.SelectTimepickerModeListener
 {
   private static final String EXTRA_FROM = "HoursMinutesFrom";
   private static final String EXTRA_TO = "HoursMinutesTo";
   private static final String EXTRA_SELECT_FIRST = "SelectedTab";
   private static final String EXTRA_ID = "Id";
+  private static final String EXTRA_TIMEPICKER_MODE = "TimepickerMode";
 
   public static final int TAB_FROM = 0;
   public static final int TAB_TO = 1;
@@ -57,13 +57,14 @@ public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
   }
 
   public static void pick(Context context, FragmentManager manager, @NonNull HoursMinutes from, @NonNull HoursMinutes to,
-                          @IntRange(from = 0, to = 1) int selectedPosition, int id)
+                          @IntRange(from = 0, to = 1) int selectedPosition, int id, int mode)
   {
     final Bundle args = new Bundle();
     args.putParcelable(EXTRA_FROM, from);
     args.putParcelable(EXTRA_TO, to);
     args.putInt(EXTRA_SELECT_FIRST, selectedPosition);
     args.putInt(EXTRA_ID, id);
+    args.putInt(EXTRA_TIMEPICKER_MODE, mode);
     final HoursMinutesPickerFragment fragment =
         (HoursMinutesPickerFragment) Fragment.instantiate(context, HoursMinutesPickerFragment.class.getName(), args);
     fragment.show(manager, null);
@@ -122,6 +123,7 @@ public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
     mTo = args.getParcelable(EXTRA_TO);
     mSelectedTab = args.getInt(EXTRA_SELECT_FIRST);
     mId = args.getInt(EXTRA_ID);
+    mSelectedMode = args.getInt(EXTRA_TIMEPICKER_MODE);
   }
 
   private View createView()
@@ -238,10 +240,5 @@ public class HoursMinutesPickerFragment extends BaseMwmDialogFragment
     mPicker.setCurrentMinute((int) hoursMinutes.minutes);
     mPicker.setCurrentHour((int) hoursMinutes.hours);
     mOkButton.setText(okBtnRes);
-  }
-
-  public void setTimepickerMode(int mode)
-  {
-    mSelectedMode = mode;
   }
 }
