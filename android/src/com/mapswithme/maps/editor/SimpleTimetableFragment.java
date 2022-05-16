@@ -14,8 +14,7 @@ import com.mapswithme.maps.editor.data.HoursMinutes;
 
 public class SimpleTimetableFragment extends BaseMwmRecyclerFragment<SimpleTimetableAdapter>
                                   implements TimetableProvider,
-                                             HoursMinutesPickerFragment.OnPickListener,
-                                             SelectTimepickerModeFragment.OnSelectTimepickerModeListener
+                                             HoursMinutesPickerFragment.OnPickListener
 {
   private SimpleTimetableAdapter mAdapter;
   @Nullable
@@ -66,11 +65,5 @@ public class SimpleTimetableFragment extends BaseMwmRecyclerFragment<SimpleTimet
   public void onHoursMinutesPicked(HoursMinutes from, HoursMinutes to, int id)
   {
     mAdapter.onHoursMinutesPicked(from, to, id);
-  }
-
-  @Override
-  public void onSetTimepickerMode(int mode)
-  {
-    mAdapter.onSetTimepickerMode(mode);
   }
 }

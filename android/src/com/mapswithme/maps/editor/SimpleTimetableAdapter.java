@@ -31,8 +31,7 @@ import java.util.List;
 
 class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter.BaseTimetableViewHolder>
                           implements HoursMinutesPickerFragment.OnPickListener,
-                                     TimetableProvider,
-                                     SelectTimepickerModeFragment.OnSelectTimepickerModeListener
+                                     TimetableProvider
 {
   private static final int TYPE_TIMETABLE = 0;
   private static final int TYPE_ADD_TIMETABLE = 1;
@@ -47,8 +46,6 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
   private List<Timetable> mItems = new ArrayList<>();
   private Timetable mComplementItem;
   private int mPickingPosition;
-
-  private int mTimepickerMode = 0;
 
   SimpleTimetableAdapter(Fragment fragment)
   {
@@ -124,19 +121,14 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
     notifyItemChanged(getItemCount() - 1);
   }
 
-  private void selectTimepicker()
-  {
-    SelectTimepickerModeFragment.select(mFragment.getActivity(), mFragment.getChildFragmentManager());
-  }
-
   private void pickTime(int position, @IntRange(from = HoursMinutesPickerFragment.TAB_FROM, to = HoursMinutesPickerFragment.TAB_TO) int tab,
-                        @IntRange(from = ID_OPENING, to = ID_CLOSING) int id)
+                        @IntRange(from = ID_OPENING, to = ID_CLOSING) int id, int timepickerMode)
   {
     final Timetable data = mItems.get(position);
     mPickingPosition = position;
     HoursMinutesPickerFragment.pick(mFragment.getActivity(), mFragment.getChildFragmentManager(),
                                     data.workingTimespan.start, data.workingTimespan.end,
-                                    tab, id, mTimepickerMode);
+                                    tab, id, timepickerMode);
   }
 
   @Override
@@ -148,12 +140,6 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
     else
       mItems.set(mPickingPosition, OpeningHours.nativeAddClosedSpan(item, new Timespan(from, to)));
     notifyItemChanged(mPickingPosition);
-  }
-
-  @Override
-  public void onSetTimepickerMode(int mode)
-  {
-    mTimepickerMode = mode;
   }
 
   private void removeClosedHours(int position, int closedPosition)
@@ -206,12 +192,14 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
     View openClose;
     View open;
     View close;
-    View mode;
     TextView tvOpen;
     TextView tvClose;
     View[] closedHours = new View[MAX_CLOSED_SPANS];
     View addClosed;
     View deleteTimetable;
+    Button mode;
+
+    int timepickerMode;
 
     TimetableViewHolder(View itemView)
     {
@@ -228,6 +216,8 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
       close = openClose.findViewById(R.id.time_close);
       close.setOnClickListener(this);
       mode = openClose.findViewById(R.id.timepicker_mode);
+      timepickerMode = 0;
+      mode.setText("Clock");
       mode.setOnClickListener(this);
       tvOpen = open.findViewById(R.id.tv__time_open);
       tvClose = close.findViewById(R.id.tv__time_close);
@@ -282,19 +272,19 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
       switch (v.getId())
       {
       case R.id.time_open:
-        pickTime(getAdapterPosition(), HoursMinutesPickerFragment.TAB_FROM, ID_OPENING);
+        pickTime(getAdapterPosition(), HoursMinutesPickerFragment.TAB_FROM, ID_OPENING, timepickerMode);
         break;
       case R.id.time_close:
-        pickTime(getAdapterPosition(), HoursMinutesPickerFragment.TAB_TO, ID_OPENING);
+        pickTime(getAdapterPosition(), HoursMinutesPickerFragment.TAB_TO, ID_OPENING, timepickerMode);
         break;
       case R.id.timepicker_mode:
-        selectTimepicker();
+        changeMode();
         break;
       case R.id.tv__remove_timetable:
         removeTimetable(getAdapterPosition());
         break;
       case R.id.tv__add_closed:
-        pickTime(getAdapterPosition(), HoursMinutesPickerFragment.TAB_FROM, ID_CLOSING);
+        pickTime(getAdapterPosition(), HoursMinutesPickerFragment.TAB_FROM, ID_CLOSING, timepickerMode);
         break;
       case R.id.allday:
         swAllday.toggle();
@@ -353,6 +343,20 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
 
       while (i < MAX_CLOSED_SPANS)
         UiUtils.hide(closedHours[i++]);
+    }
+
+    private void changeMode()
+    {
+      timepickerMode = 1 - timepickerMode;
+
+      if (timepickerMode == 0)
+      {
+        mode.setText("Clock");
+      }
+      else
+      {
+        mode.setText("Spinner");
+      }
     }
 
     /**
