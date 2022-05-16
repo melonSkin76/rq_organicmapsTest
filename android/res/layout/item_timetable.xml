@@ -257,7 +257,7 @@
               android:id="@+id/timepicker_mode"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="@string/timepicker_mode"
+              android:text="Timepicker Mode"
               android:textAppearance="@style/MwmTextAppearance.Body3" />
 
         </LinearLayout>

@@ -197,7 +197,7 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
     View[] closedHours = new View[MAX_CLOSED_SPANS];
     View addClosed;
     View deleteTimetable;
-    Button mode;
+    Button timepickerModeButton;
 
     int timepickerMode;
 
@@ -215,10 +215,10 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
       open.setOnClickListener(this);
       close = openClose.findViewById(R.id.time_close);
       close.setOnClickListener(this);
-      mode = openClose.findViewById(R.id.timepicker_mode);
+      timepickerModeButton = openClose.findViewById(R.id.timepicker_mode);
       timepickerMode = 0;
-      mode.setText("Clock");
-      mode.setOnClickListener(this);
+      timepickerModeButton.setText("Clock");
+      timepickerModeButton.setOnClickListener(this);
       tvOpen = open.findViewById(R.id.tv__time_open);
       tvClose = close.findViewById(R.id.tv__time_close);
       addClosed = schedule.findViewById(R.id.tv__add_closed);
@@ -351,11 +351,11 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
 
       if (timepickerMode == 0)
       {
-        mode.setText("Clock");
+        timepickerModeButton.setText("Clock");
       }
       else
       {
-        mode.setText("Spinner");
+        timepickerModeButton.setText("Spinner");
       }
     }
 
