@@ -246,7 +246,7 @@ UNIT_TEST(Russia_Moscow_PankratevskiPerBolshaySuharedskazPloschad_TurnTest)
 
   std::vector<turns::TurnItem> t;
   route.GetTurnsForTesting(t);
-  
+
   integration::TestTurnCount(route, 5 /* expectedTurnCount */);
   integration::GetNthTurn(route, 0).TestValid().TestDirection(CarDirection::TurnRight);
   integration::GetNthTurn(route, 1).TestValid().TestDirection(CarDirection::TurnLeft);
@@ -1096,6 +1096,64 @@ UNIT_TEST(Cyprus_NicosiaSchoolParking_TurnTest)
   integration::GetNthTurn(route, 0).TestValid().TestDirection(CarDirection::TurnSlightLeft);
 }
 
+UNIT_TEST(Cyprus_NicosiaStartRoundabout_TurnTest)
+{
+  // Start movement at roundabout.
+  TRouteResult const routeResult =
+      integration::CalculateRoute(integration::GetVehicleComponents(VehicleType::Car),
+                                  mercator::FromLatLon(35.12788, 33.36568), {0., 0.},
+                                  mercator::FromLatLon(35.12302, 33.37632));
+
+  Route const & route = *routeResult.first;
+  RouterResultCode const result = routeResult.second;
+
+  // Issue #2531.
+  TEST_EQUAL(result, RouterResultCode::NoError, ());
+  integration::TestTurnCount(route, 3 /* expectedTurnCount */);
+  integration::GetNthTurn(route, 0).TestValid().TestDirection(CarDirection::LeaveRoundAbout);
+  integration::GetNthTurn(route, 0).TestValid().TestRoundAboutExitNum(3);
+  integration::GetNthTurn(route, 1).TestValid().TestDirection(CarDirection::EnterRoundAbout);
+  integration::GetNthTurn(route, 1).TestValid().TestRoundAboutExitNum(3);
+  integration::GetNthTurn(route, 2).TestValid().TestDirection(CarDirection::LeaveRoundAbout);
+  integration::GetNthTurn(route, 2).TestValid().TestRoundAboutExitNum(3);
+}
+
+UNIT_TEST(Cyprus_NicosiaSmallRoundabout_TurnTest)
+{
+  TRouteResult const routeResult =
+      integration::CalculateRoute(integration::GetVehicleComponents(VehicleType::Car),
+                                  mercator::FromLatLon(35.13103, 33.37222), {0., 0.},
+                                  mercator::FromLatLon(35.13099, 33.37089));
+
+  Route const & route = *routeResult.first;
+  RouterResultCode const result = routeResult.second;
+
+  // Issue #2570.
+  // Don't ignore exit to parking for this small roundabout.
+  TEST_EQUAL(result, RouterResultCode::NoError, ());
+  integration::TestTurnCount(route, 2 /* expectedTurnCount */);
+  integration::GetNthTurn(route, 0).TestValid().TestDirection(CarDirection::EnterRoundAbout);
+  integration::GetNthTurn(route, 0).TestValid().TestRoundAboutExitNum(2);
+  integration::GetNthTurn(route, 1).TestValid().TestDirection(CarDirection::LeaveRoundAbout);
+  integration::GetNthTurn(route, 1).TestValid().TestRoundAboutExitNum(2);
+}
+
+UNIT_TEST(Cyprus_A1AlphaMega_TurnTest)
+{
+  TRouteResult const routeResult =
+      integration::CalculateRoute(integration::GetVehicleComponents(VehicleType::Car),
+                                  mercator::FromLatLon(34.81834, 33.35914), {0., 0.},
+                                  mercator::FromLatLon(34.81881, 33.36561));
+
+  Route const & route = *routeResult.first;
+  RouterResultCode const result = routeResult.second;
+
+  // Issue #2536.
+  TEST_EQUAL(result, RouterResultCode::NoError, ());
+  integration::TestTurnCount(route, 1 /* expectedTurnCount */);
+  integration::GetNthTurn(route, 0).TestValid().TestDirection(CarDirection::TurnLeft);
+  // No extra GoStraight caused by possible turn to parking.
+}
 
 UNIT_TEST(Russia_Moscow_OnlyUTurnTest1_TurnTest)
 {
