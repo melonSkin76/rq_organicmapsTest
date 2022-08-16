@@ -503,12 +503,6 @@
 
 "history" = "내역";
 
-"opens_in" = "Opens in %@";
-
-"closes_in" = "Closes in %@";
-
-"closed" = "닫음";
-
 "search_not_found" = "죄송합니다. 아무것도 찾지 못했습니다.";
 
 "search_not_found_query" = "다른 쿼리를 시도하십시오.";
@@ -578,6 +572,20 @@
 
 "today" = "오늘";
 
+"opens_tomorrow_at" = "Opens tomorrow at %@";
+
+"opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
+
+"opens_at" = "Opens at %@";
+
+"opens_in" = "Opens in %@";
+
+"closes_at" = "Closes at %@";
+
+"closes_in" = "Closes in %@";
+
+"closed" = "닫음";
+
 "add_opening_hours" = "영업일 추가";
 
 "no_osm_account" = "OpenStreetMap에서 계정이 없습니까?";
@@ -629,6 +637,8 @@
 "email_or_username" = "이메일 또는 사용자 이름";
 
 "phone" = "전화";
+
+"level" = "층";
 
 "please_note" = "참고 사항";
 
@@ -749,6 +759,8 @@
 "foot" = "풋";
 
 "miles_per_hour" = "mph";
+
+"hour" = "t";
 
 "minute" = "min";
 
@@ -1356,6 +1368,12 @@
 
 "type.amenity.parking.underground" = "주차";
 
+"type.amenity.parking_entrance.private" = "주차장 입구";
+
+"type.amenity.parking_entrance.permissive" = "주차장 입구";
+
+"type.amenity.parking_entrance" = "주차장 입구";
+
 "type.amenity.parking_space" = "주차장";
 
 "type.amenity.parking_space.permissive" = "주차장";
@@ -1363,6 +1381,8 @@
 "type.amenity.parking_space.private" = "주차장";
 
 "type.amenity.parking_space.underground" = "주차장";
+
+"type.amenity.parking_space.disabled" = "장애인 주차 공간";
 
 "type.amenity.payment_terminal" = "결제 단말기";
 
@@ -2468,8 +2488,6 @@
 
 "type.organic.yes" = "Organic";
 
-"type.place" = "place";
-
 "type.place.city" = "도시";
 
 "type.place.city.capital" = "수도";
@@ -2508,11 +2526,11 @@
 
 "type.place.islet" = "섬";
 
-"type.place.isolated_dwelling" = "Dwelling";
+"type.place.isolated_dwelling" = "고립된 주거";
 
 "type.place.locality" = "장소";
 
-"type.place.neighbourhood" = "Neighbourhood";
+"type.place.neighbourhood" = "동네";
 
 "type.place.ocean" = "대양";
 
@@ -2520,7 +2538,7 @@
 
 "type.place.sea" = "바다";
 
-"type.place.square" = "Square";
+"type.place.square" = "광장";
 
 "type.place.state" = "주";
 
@@ -2970,6 +2988,18 @@
 "type.sport.9pin" = "볼링";
 
 "type.sport.10pin" = "볼링";
+
+"type.sport.padel" = "파델";
+
+"type.sport.futsal" = "풋살";
+
+"type.sport.ice_hockey" = "아이스 하키";
+
+"type.sport.field_hockey" = "필드 하키";
+
+"type.sport.badminton" = "배드민턴";
+
+"type.sport.pelota" = "바스크 펠로타";
 
 "type.tourism" = "Tourism";
 

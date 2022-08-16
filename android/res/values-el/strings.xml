@@ -336,7 +336,6 @@
 	<string name="routing_arrive">Άφιξη στις %s</string>
 	<string name="categories">Κατηγορίες</string>
 	<string name="history">Ιστορικό</string>
-	<string name="closed">Κλειστό</string>
 	<string name="search_not_found">Ωχ, δεν βρέθηκαν αποτελέσματα.</string>
 	<string name="search_not_found_query">Δοκιμάστε να αλλάξετε τα κριτήρια αναζήτησής σας.</string>
 	<string name="search_history_title">Ιστορικό αναζήτησης</string>
@@ -380,6 +379,7 @@
 	<string name="day_off_today">Κλειστό σήμερα</string>
 	<string name="day_off">Κλειστό</string>
 	<string name="today">Σήμερα</string>
+	<string name="closed">Κλειστό</string>
 	<string name="edit_opening_hours">Επεξεργαστείτε τις ώρες λειτουργίας</string>
 	<string name="no_osm_account">Δεν έχετε λογαριασμό OpenStreetMap;</string>
 	<string name="register_at_openstreetmap">Εγγραφείτε στο OSM</string>
@@ -404,6 +404,7 @@
 	<string name="select_cuisine">Επιλέξτε κουζίνα</string>
 	<!-- login text field -->
 	<string name="email_or_username">Email ή όνομα χρήστη</string>
+	<string name="level">Όροφος</string>
 	<string name="downloader_delete_map_dialog">Όλες οι αλλαγές που έχετε κάνει στο χάρτη θα διαγραφούν μαζί με το χάρτη.</string>
 	<string name="downloader_update_maps">Ενημέρωση χαρτών</string>
 	<string name="downloader_mwm_migration_dialog">Για να δημιουργήσετε μια διαδρομή, πρέπει να ενημερώσετε όλους τους χάρτες και στη συνέχεια να σχεδιάσετε τη διαδρομή ξανά.</string>
@@ -496,7 +497,7 @@
 	<string name="on">Ενεργ.</string>
 	<string name="off">Απενεργ.</string>
 	<string name="prefs_languages_information">Χρησιμοποιούμε σύστημα TTS για τις φωνητικές οδηγίες. Αρκετές συσκευές Android χρησιμοποιούν Google TTS, μπορείτε να το κατεβάσετε ή να το ενημερώσετε από το Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-	<string name="prefs_languages_information_off">Για μερικές γλώσσες θα χρειαστεί να εγκαταστήσετε συνθεσάιζερ ομιλίας ή συμπληρωματικό πακέτο γλώσσας από το app store (Google Play, Samsung Apps, App Gallery, FDroid).\nΑνοίξτε τις Ρυθμίσεις της συσκευής σας → Γλώσσα και εισαγωγή → Ομιλία → Μετατροπή κειμένου σε ομιλία.\nΕδώ μπορείτε να διαχειριστείτε τις ρυθμίσεις της σύνθεσης ομιλίας (για παράδειγμα, μπορείτε να κατεβάσετε πακέτο γλώσσας για χρήση εκτός σύνδεσης) και να επιλέξετε άλλη μηχανή μετατροπής κειμένου σε ομιλία.</string>
+	<string name="prefs_languages_information_off">Για μερικές γλώσσες θα χρειαστεί να εγκαταστήσετε συνθεσάιζερ ομιλίας ή συμπληρωματικό πακέτο γλώσσας από το app store (Google Play, Galaxy Store, App Gallery, FDroid).\nΑνοίξτε τις Ρυθμίσεις της συσκευής σας → Γλώσσα και εισαγωγή → Ομιλία → Μετατροπή κειμένου σε ομιλία.\nΕδώ μπορείτε να διαχειριστείτε τις ρυθμίσεις της σύνθεσης ομιλίας (για παράδειγμα, μπορείτε να κατεβάσετε πακέτο γλώσσας για χρήση εκτός σύνδεσης) και να επιλέξετε άλλη μηχανή μετατροπής κειμένου σε ομιλία.</string>
 	<string name="prefs_languages_information_off_link">Για περισσότερες πληροφορίες δείτε αυτό τον οδηγό.</string>
 	<string name="transliteration_title">Μεταγραφή στα Λατινικά</string>
 	<string name="learn_more">Μάθετε περισσότερα</string>
@@ -724,10 +725,14 @@
 	<string name="type.amenity.parking.permissive">Χώρος στάθμευσης</string>
 	<string name="type.amenity.parking.private">Χώρος στάθμευσης</string>
 	<string name="type.amenity.parking.underground">Χώρος στάθμευσης</string>
+	<string name="type.amenity.parking_entrance.private">Είσοδος στάθμευσης</string>
+	<string name="type.amenity.parking_entrance.permissive">Είσοδος στάθμευσης</string>
+	<string name="type.amenity.parking_entrance">Είσοδος στάθμευσης</string>
 	<string name="type.amenity.parking_space">Χώρος στάθμευσης</string>
 	<string name="type.amenity.parking_space.permissive">Χώρος στάθμευσης</string>
 	<string name="type.amenity.parking_space.private">Χώρος στάθμευσης</string>
 	<string name="type.amenity.parking_space.underground">Χώρος στάθμευσης</string>
+	<string name="type.amenity.parking_space.disabled">Χώρος στάθμευσης για ΑΜΕΑ</string>
 	<string name="type.amenity.payment_terminal">Τερματικό πληρωμών</string>
 	<string name="type.amenity.pharmacy">Φαρμακείο</string>
 	<string name="type.amenity.place_of_worship">Χώρος λατρείας</string>
@@ -1184,10 +1189,13 @@
 	<string name="type.place.hamlet">Χωριουδάκι</string>
 	<string name="type.place.island">Νησί</string>
 	<string name="type.place.islet">Νησί</string>
+	<string name="type.place.isolated_dwelling">Απομονωμένη κατοικία</string>
 	<string name="type.place.locality">Τοποθεσία</string>
+	<string name="type.place.neighbourhood">Γειτονιά</string>
 	<string name="type.place.ocean">Ωκεανός</string>
 	<string name="type.place.region">Περιοχή</string>
 	<string name="type.place.sea">Θάλασσα</string>
+	<string name="type.place.square">Πλατεία</string>
 	<string name="type.place.state">Πολιτεία</string>
 	<string name="type.place.state.USA">Πολιτεία</string>
 	<string name="type.place.suburb">Προάστιο</string>
@@ -1353,6 +1361,12 @@
 	<string name="type.sport.volleyball">Πετοσφαίριση</string>
 	<string name="type.sport.9pin">Μπόουλινγκ</string>
 	<string name="type.sport.10pin">Μπόουλινγκ</string>
+	<string name="type.sport.padel">Padel</string>
+	<string name="type.sport.futsal">Futsal</string>
+	<string name="type.sport.ice_hockey">Χόκεϊ στον παγο</string>
+	<string name="type.sport.field_hockey">Χόκεϊ επί χόρτου</string>
+	<string name="type.sport.badminton">Αντιπτέριση</string>
+	<string name="type.sport.pelota">Βασκική πελότα</string>
 	<string name="type.tourism.alpine_hut">Ορεινό καταφύγιο</string>
 	<string name="type.tourism.apartment">Διαμερίσματα</string>
 	<string name="type.tourism.artwork">Έργα τέχνης</string>

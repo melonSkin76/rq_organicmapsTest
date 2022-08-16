@@ -337,7 +337,6 @@
 	<string name="routing_arrive">Ankomme: %s</string>
 	<string name="categories">Kategorier</string>
 	<string name="history">Historikk</string>
-	<string name="closed">Stengt</string>
 	<string name="search_not_found">Beklager, jeg fant ingenting.</string>
 	<string name="search_not_found_query">Vennligst prøv et annet søk.</string>
 	<string name="search_history_title">Søkehistorikk</string>
@@ -379,6 +378,7 @@
 	<string name="day_off_today">Fridag i dag</string>
 	<string name="day_off">Fridag</string>
 	<string name="today">I dag</string>
+	<string name="closed">Stengt</string>
 	<string name="edit_opening_hours">Rediger åpningstider</string>
 	<string name="no_osm_account">Har du ingen konto hos OpenStreetMap?</string>
 	<string name="register_at_openstreetmap">Registrer deg</string>
@@ -402,6 +402,7 @@
 	<string name="select_cuisine">Velg matrett</string>
 	<!-- login text field -->
 	<string name="email_or_username">E-postadresse eller brukernavn</string>
+	<string name="level">Gulv</string>
 	<string name="downloader_delete_map_dialog">Alle endringer i kartet vil slettes sammen med kartet.</string>
 	<string name="downloader_update_maps">Oppdater kart</string>
 	<string name="downloader_mwm_migration_dialog">For å opprette en reiserute må du oppdatere alle kartene og deretter planlegge reiseruten på nytt.</string>
@@ -502,7 +503,7 @@
 	<string name="on">På</string>
 	<string name="off">Av</string>
 	<string name="prefs_languages_information">Vi bruker system TTS for stemmeveiledning. Mange Android-enheter bruker Google TTS, Du kan laste ned eller oppdatere via Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-	<string name="prefs_languages_information_off">For enkelte språk er det nødvendig å installere en annen talesyntese eller en ekstra språkpakke fra appbutikken (Google Play, Samsung Apps, App Gallery, FDroid).\nGå til enhetens innstillinger → Språk og input → Tale → Tekst til tale output.\nHer kan du administrere innstillingene for talesyntese (for eksempel laste ned språkpakke for offline bruk) og velge en annen tekst-til-tale-motor.</string>
+	<string name="prefs_languages_information_off">For enkelte språk er det nødvendig å installere en annen talesyntese eller en ekstra språkpakke fra appbutikken (Google Play, Galaxy Store, App Gallery, FDroid).\nGå til enhetens innstillinger → Språk og input → Tale → Tekst til tale output.\nHer kan du administrere innstillingene for talesyntese (for eksempel laste ned språkpakke for offline bruk) og velge en annen tekst-til-tale-motor.</string>
 	<string name="prefs_languages_information_off_link">Les denne veiledningen for mer informasjon.</string>
 	<string name="transliteration_title">Omskrivning til latin</string>
 	<string name="learn_more">Finn ut mer</string>
@@ -723,10 +724,14 @@
 	<string name="type.amenity.parking.permissive">Parkering</string>
 	<string name="type.amenity.parking.private">Parkering</string>
 	<string name="type.amenity.parking.underground">Parkering</string>
+	<string name="type.amenity.parking_entrance.private">Parkeringsinngang</string>
+	<string name="type.amenity.parking_entrance.permissive">Parkeringsinngang</string>
+	<string name="type.amenity.parking_entrance">Parkeringsinngang</string>
 	<string name="type.amenity.parking_space">Parkeringsplass</string>
 	<string name="type.amenity.parking_space.permissive">Parkeringsplass</string>
 	<string name="type.amenity.parking_space.private">Parkeringsplass</string>
 	<string name="type.amenity.parking_space.underground">Parkeringsplass</string>
+	<string name="type.amenity.parking_space.disabled">Parkeringsplass for funksjonshemmede</string>
 	<string name="type.amenity.payment_terminal">Betalingsterminal</string>
 	<string name="type.amenity.pharmacy">Apotek</string>
 	<string name="type.amenity.place_of_worship">Gudshus</string>
@@ -1176,9 +1181,13 @@
 	<string name="type.place.hamlet">Landsby</string>
 	<string name="type.place.island">Øy</string>
 	<string name="type.place.islet">Øy</string>
+	<string name="type.place.isolated_dwelling">Isolert bolig</string>
 	<string name="type.place.locality">Lokalitet</string>
+	<string name="type.place.neighbourhood">Strøk</string>
 	<string name="type.place.ocean">Hav</string>
+	<string name="type.place.region">Region</string>
 	<string name="type.place.sea">Sjø</string>
+	<string name="type.place.square">Torg</string>
 	<string name="type.place.state">Stat</string>
 	<string name="type.place.state.USA">Stat</string>
 	<string name="type.place.suburb">Forstad</string>
@@ -1345,6 +1354,12 @@
 	<string name="type.sport.volleyball">Volleyball</string>
 	<string name="type.sport.9pin">Bowling</string>
 	<string name="type.sport.10pin">Bowling</string>
+	<string name="type.sport.padel">Padel</string>
+	<string name="type.sport.futsal">Futsal</string>
+	<string name="type.sport.ice_hockey">Ishockey</string>
+	<string name="type.sport.field_hockey">Landhockey</string>
+	<string name="type.sport.badminton">Badminton</string>
+	<string name="type.sport.pelota">Baskisk pelota</string>
 	<string name="type.tourism.alpine_hut">Fjellstue</string>
 	<string name="type.tourism.apartment">Leiligheter</string>
 	<string name="type.tourism.artwork">Kunstverk</string>
