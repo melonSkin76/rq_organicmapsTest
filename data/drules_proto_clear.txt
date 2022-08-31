@@ -4823,7 +4823,20 @@ cont {
 cont {
   name: "amenity-internet_cafe"
   element {
+    scale: 18
+    symbol {
+      name: "internet_cafe-m"
+      apply_for_type: 1
+      priority: 16000
+    }
+  }
+  element {
     scale: 19
+    symbol {
+      name: "internet_cafe-m"
+      apply_for_type: 1
+      priority: 16000
+    }
     caption {
       primary {
         height: 10
@@ -8670,23 +8683,15 @@ cont {
   element {
     scale: 17
     symbol {
-      name: "vending-m"
+      name: "zero-icon"
       priority: 16594
       min_distance: 20
-    }
-    caption {
-      primary {
-        height: 10
-        color: 4473924
-        offset_y: 1
-      }
-      priority: 15594
     }
   }
   element {
     scale: 18
     symbol {
-      name: "vending-m"
+      name: "fuel-dispenser-m"
       priority: 16594
       min_distance: 20
     }
@@ -8702,7 +8707,7 @@ cont {
   element {
     scale: 19
     symbol {
-      name: "vending-m"
+      name: "fuel-dispenser-m"
       priority: 16594
       min_distance: 20
     }
@@ -32341,6 +32346,114 @@ cont {
 }
 cont {
   name: "landuse-farmland"
+  element {
+    scale: 10
+    area {
+      color: 15459493
+      priority: -15906
+    }
+  }
+  element {
+    scale: 11
+    area {
+      color: 15459493
+      priority: -15906
+    }
+  }
+  element {
+    scale: 12
+    area {
+      color: 15459493
+      priority: -15906
+    }
+  }
+  element {
+    scale: 13
+    area {
+      color: 15459493
+      priority: -15906
+    }
+  }
+  element {
+    scale: 14
+    area {
+      color: 15459493
+      priority: -15906
+    }
+  }
+  element {
+    scale: 15
+    area {
+      color: 15459493
+      priority: -15906
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+      }
+      priority: 15094
+    }
+  }
+  element {
+    scale: 16
+    area {
+      color: 15459493
+      priority: -15906
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+      }
+      priority: 15094
+    }
+  }
+  element {
+    scale: 17
+    area {
+      color: 15459493
+      priority: -15906
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+      }
+      priority: 15094
+    }
+  }
+  element {
+    scale: 18
+    area {
+      color: 15459493
+      priority: -15906
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+      }
+      priority: 15094
+    }
+  }
+  element {
+    scale: 19
+    area {
+      color: 15459493
+      priority: -15906
+    }
+    caption {
+      primary {
+        height: 10
+        color: 4473924
+      }
+      priority: 15094
+    }
+  }
+}
+cont {
+  name: "landuse-farmyard"
   element {
     scale: 10
     area {
