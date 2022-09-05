@@ -97,7 +97,7 @@ bg:4Продукти|Храна|4Магазин
 ar:طعام|متجر|بقالية
 cs:Potraviny|Jídlo|Obchod
 da:Dagligvarer|Mad|Butik
-nl:Kruidenierswinkels|Eten|Winkel
+nl:Boodschappen|Kruidenierswinkels|Eten|Winkel
 fi:Tuotteet|Ruoka|Kauppa
 fr:Les courses|Nourriture|Magasin
 de:6Lebensmittel|Essen|Geschäft|Laden
@@ -521,6 +521,7 @@ ru:Для автодомов|5Автодом|5Трейлер|Дом на кол�
 ro:Pentru rulote|3Rulotă|RV
 tr:4Karavan Tesisleri
 uk:Для автобудинків|5Автодім|5Автобудинок|5Трейлер|5Караван|Будинок на колесах
+nl:4Caravan faciliteiten|4Caravans|5Campers
 
 amenity-atm|@atm
 en:money|U+1F3E7|U+1F4B2|U+1F4B3|U+1F4B4|U+1F4B5|U+1F4B6|U+1F4B7
@@ -6370,7 +6371,7 @@ zh-Hans:篮球
 zh-Hant:籃球
 
 sport-beachvolleyball
-en:Beachvolleyball
+en:Beach volleyball
 ar:كرة طائرة شاطئية
 be:Пляжны валейбол
 bg:Плажен волейбол
@@ -7096,7 +7097,7 @@ el:Κτίριο
 sk:Budova|stavba
 sw:Jengo
 fa:ساختمان
-mr:इमारत|बिल्डिंग|वाडा 
+mr:इमारत|बिल्डिंग|वाडा
 
 # First keyword should match [police] definition in strings.txt!
 @police
@@ -11906,7 +11907,7 @@ eu:Ekitaldien Lekua
 fa:محل برگزاری رویدادها
 fi:Tapahtumapaikka
 fr:Lieu des événements
-he:מקום אירועים 
+he:מקום אירועים
 hu:Rendezvények helyszíne
 id:Tempat acara
 it:Sede degli eventi
